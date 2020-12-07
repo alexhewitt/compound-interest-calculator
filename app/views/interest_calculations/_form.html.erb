@@ -1,0 +1,44 @@
+<%= form_with(model: interest_calculation, local: true) do |form| %>
+  <p>
+    <%= form.label 'Principal amount (£)' %><br>
+    <%= form.text_field :principal_amount %>
+  </p>
+  <p>
+    <%= form.label 'Interest rate (%)' %><br>
+    <%= form.text_field :interest_rate %>
+  </p>
+  <p>
+    <%= form.label 'Duration (years)' %><br>
+    <%= form.select :duration, (1..25) %>
+  </p>
+  <p>
+    <%= form.label 'Times compounded per year' %><br>
+    <%= form.select :frequency, :'- select -' => nil, :'1' => 1, :'12' => 12, :'365' => 365 %>
+  </p>
+
+  <% if @interest_calculation %>
+
+    <p>
+      <%= form.label 'Total value at end of term (£)' %><br>
+      <%= form.text_field :final_amount, :value => number_with_precision(@interest_calculation.final_amount, :precision => 2) %>
+    </p>
+    
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+  <% if interest_calculation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(interest_calculation.errors.count, "error") %> prohibited this calculation from being completed:</h2>
+
+      <ul>
+        <% interest_calculation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<% end %>

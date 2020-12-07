@@ -1,0 +1,22 @@
+<%= form_with(model: interest_calculation, local: true) do |form| %>
+    <p>
+      <%= form.label 'Principal amount (£)' %><br>
+      <%= form.text_field :principal_amount, :value => @interest_calculation.principal_amount, :readonly => true %>
+    </p>
+    <p>
+      <%= form.label 'Interest rate (%)' %><br>
+      <%= form.text_field :interest_rate, :value => @interest_calculation.interest_rate, :readonly => true %>
+    </p>
+    <p>
+      <%= form.label 'Duration (years)' %><br>
+      <%= form.text_field :duration, :value => @interest_calculation.duration, :readonly => true %>
+    </p>
+    <p>
+      <%= form.label 'Times compounded per year' %><br>
+      <%= form.text_field :frequency, :value => @interest_calculation.frequency, :readonly => true %>
+    </p>
+    <p>
+      <%= form.label 'Total value at end of term (£)' %><br>
+      <%= form.text_field :final_amount, :value => number_with_precision(@interest_calculation.final_amount, :precision => 2) %>
+    </p>
+<% end %>
