@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  principal_amount: 5000
+  interest_rate: 0.05
+  duration: 10
+  frequency: 12
+  final_amount: 8235.0474884514
+
+two:
+  principal_amount: 3000
+  interest_rate: 0.045
+  duration: 5
+  frequency: 12
+  final_amount: 3755.3874615725
+
+three:
+  principal_amount: 1
+  interest_rate: 0.001
+  duration: 1
+  frequency: 1
+  final_amount: 1.001
+
+four:
+  principal_amount: 100000000000000000000000000000000
+  interest_rate: 0.1499
+  duration: 25
+  frequency: 365
+  final_amount: 4238229438357306076612039698422916.0275846216
